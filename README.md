@@ -44,11 +44,11 @@ Imagen 5. Resultado de las votaciones. ![](./readme_files/Aspose.Words.e1dbe1f6-
 
 Ocupa las siguiente sentencias SQL antes de iniciar el desarrollo de esta prueba para la creación de la base de datos y las tablas que utilizarás para almacenar los datos de la prueba:
 
-**CREATE DATABASE** elecciones![](./readme_files/Aspose.Words.e1dbe1f6-4bdd-43c9-8b9f-a58ab985e4dd.007.png)
+**CREATE DATABASE** elecciones
 
-**CREATE TABLE** candidatos (**id** SERIAL, nombre VARCHAR(50), foto ![](./readme_files/Aspose.Words.e1dbe1f6-4bdd-43c9-8b9f-a58ab985e4dd.008.png)varchar(200), color varchar(9), votos INT);
+**CREATE TABLE** candidatos (**id** SERIAL, nombre VARCHAR(50), foto varchar(200), color varchar(9), votos INT);
 
-**CREATE TABLE** historial (estado varchar(35) **UNIQUE**, votos INT, ganador ![](./readme_files/Aspose.Words.e1dbe1f6-4bdd-43c9-8b9f-a58ab985e4dd.009.png)varchar(40));
+**CREATE TABLE** historial (estado varchar(35) **UNIQUE**, votos INT, ganador varchar(40));
 
 Requerimientos
 
@@ -64,6 +64,5 @@ Requerimientos
 
 6. Crear una ruta **GET /historial** que al ser consultada ejecute una función asíncrona para obtener todos los registros de la tabla **historial** a través de una consulta SQL. Se debe devolver al cliente los datos en formato de arreglo.
 7. Desarrollar las funciones asíncronas y la lógica que utiliza el paquete pg en un archivo externo al del servidor.
-   **\_ PAGE5![](./readme_files/Aspose.Words.e1dbe1f6-4bdd-43c9-8b9f-a58ab985e4dd.010.png)**
 
 www.desafiolatam.com
