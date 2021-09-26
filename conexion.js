@@ -9,17 +9,22 @@ const pool = new Pool({
 });
 
 async function guardarCandidato(candidato) {
-  const values = Object.values(candidato);
-  const consulta = {
-    text: "INSERT INTO candidatos (nombre, foto, color, votos) values ( $1,$2, $3, 0)",
-    values,
-  };
-  try {
-    const result = await pool.query(consulta);
-    return result;
-  } catch (e) {
-    return e;
-  }
+  pool.connect(async (error_conexion, client, release) => {
+    if (error_conexion) return console.error(error_conexion.code);
+    const values = Object.values(candidato);
+    const consulta = {
+      text: "INSERT INTO candidatos (nombre, foto, color, votos) values ( $1,$2, $3, 0)",
+      values,
+    };
+    try {
+      const result = await client.query(consulta);
+      return result;
+    } catch (e) {
+      return e;
+    }
+    release();
+    pool.end();
+  });
 }
 
 async function getCandidatos() {
